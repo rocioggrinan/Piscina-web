@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="backgroound.css"> <!--conectar con html-->
+    <!-- INCLUIR jQuery desde una CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <button id="cambiarcolor">Vamos a cambiar el color jeje</button> <!--nombre del boton-->
+    </div>
+    <script>
+        /*INCLUR jQuery para manejar el evento de clic*/
+        $(document).ready(function() {
+            $('#cambiarcolor').on('click', function() {
+                /* crear colores aleatorios */
+                const randomColor = '#' + Math.floor(Math.random() *16777215).toString(16);
+                $('body').css('background-color', randomColor); /* cambiar color del fndo */
+            });
+            
+        });
+    </script>
+
+</body>
+</html>

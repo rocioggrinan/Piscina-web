@@ -1,0 +1,51 @@
+body {
+    margin: 0; /*elimina los margenes*/
+    font-family: Arial, sans-serif; /*tipografia*/
+}
+
+.parallax1 {
+    /*primera imagen*/
+    background-image: url('imagen1.jpg'); /*poner esta imagen en el fondo*/
+    height: 100vh; /*altur de la ventana del navegador*/
+    background-attachment: fixed; /*mantiene la imagen fija*/
+    background-position: center; /*centrar la imagen*/
+    background-repeat: no-repeat; /* no repite la imagen*/
+    background-size: cover; /*cubre todo el area*/
+}
+
+.bloque-negro {
+    /*bloque negro*/
+    background-color: black; /*color de fondo negro*/
+    color: white; /*color  de la letra*/
+    text-align: center; /*centrar letra*/
+    padding: 50px 0px; /*espacio arriba y abajo*/
+}
+
+.parallax2 {
+    /*segunda imagen*/
+
+    background-image: url('imagen2.jpg'); /*poner esto como segunda imagen*/
+    height: 100vh; /*altura de la ventana del navegador*/
+    background-attachment: fixed; /*mantiene la imagen fija*/
+    background-position: center; /*centrar la imagen*/
+    background-repeat: no-repeat; /* no repite la imagen*/
+    background-size: cover; /*cubre todo el area*/
+}
+
+.content {
+    position: absolute; /*especificar la posicion*/
+    top: 50%; /*centra verticalmente*/
+    left: 50%; /*centrar horizontalmente*/
+    transform: translate(-50%, -50%); /*centrar*/
+    text-align: center; /*centrar texto*/
+    color: white; /*color del texto blanco*/
+}
+
+.content1 {
+    position: relative; /*especificar la posicion para la segunda imagen*/
+    top: 50%; /*centra verticalmente*/
+    left: 50%; /*centrar horizontalmente*/
+    transform: translate(-50%, -50%); /*centrar*/
+    text-align: center; /*centrar texto*/
+    color: white; /*color del texto blanco*/
+}

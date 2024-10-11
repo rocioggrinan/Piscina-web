@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Básico</title>
+    <style>
+        body {
+            background-color: pink; /*fondo rosa*/
+        }
+        h1{
+            color: white; /*texto en blanco*/
+            text-align: center; /*centar texto*/
+            font-size: 60px;  /*tamaño de la letra*/
+        }
+        .imagenes {
+            display: flex; /*muestra las imagenes una al lado de la otra */
+            justify-content: center; /*centrar las imagenes*/
+        }
+        img {
+            max-width: 200px; /*el ancho de las imagenes*/
+            margin: 10px; /*espacio entre las imagenes*/
+        }
+        .copyright {
+            text-align: right; /*aliniar a la derecha*/
+            font-style: italic; /*texto en cursiva*/
+            font-family: monospace; /*tipo de letra monospace*/
+        }
+    </style>
+</head>
+<body>
+    <h1> *Buenos días mundo* </h1> <!--lo editado arriba-->
+<div class="imagenes">
+    <div>
+        <img src="zara.png" alt="tienda 1"> <!--Imagen de la tienda 1-->
+        <p><a href="https://www.zara.com/es/" target="_blank">Visitar tienda 1</a></p> <!--enlace a tienda 1-->
+    </div>
+    <div>
+        <img src="hym.png" target="Visitar tienda 2"> <!--imagen de la tienda 2-->
+        <p><a href="https://www2.hm.com/es_es/index.html?srsltid=AfmBOoqus2zRD0keZ2V7XZ-Fqygt9dzURhYQM7sA7FNgjpzZJwC6b6YV" target="_blank">visitar tienda 2</a></p> <!--enlace a tienda 2-->
+    </div>
+</div>
+    <hr> <!--linea horizontal que separa la página-->
+
+    <p  class="copyright">© rocigarc 2024</p> <!--copyright aliniado a la derecha-->
+</body>
+</html>

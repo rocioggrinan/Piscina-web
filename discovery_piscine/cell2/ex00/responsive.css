@@ -1,0 +1,18 @@
+table {
+    width: 50%;  /*tmaño de la tabla es el 50% del ancho de la pagina*/
+    height: 150px;  /*altura de la casilla*/
+    text-align: center; /*centrar el texto dentro de la casilla*/
+    font-size: 24px; /*tamaño del texto*/
+    color: white; /*color del texto blanco*/
+    border: 2px solid black; /*bordes negros entre las cajas*/
+}
+.color1 {
+    background-color: yellow; /*primera casilla del color amarillo*/
+}
+.color2 {
+    background-color: blueviolet; /*segunda casilla de color morado*/
+}
+.centrar {
+    display: flex; /*reubicar elementos*/
+    justify-content: center; /*el contenido se centre*/
+}

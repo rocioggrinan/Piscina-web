@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo interactivo</title>
+    <style>
+        /*editar el globo*/
+        #globo {
+            width: 200px; /*el ancho*/
+            height: 200px; /*el alto*/
+            background-color: red; /*color del fondo*/
+            border-radius: 100%; /*forma redonda*/
+            position: relative; 
+            margin: 100px auto; /*margenes*/
+            transition: width 0.2s, height 0.2s, background-color 0.2s; /*animacion*/ 
+        }
+    </style>
+    <!-- INCLUIR jQuery desde una CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!--el globo-->
+    <div id="globo"></div>
+    <!--funciones dentro del escrito-->
+    <script>
+        // variables del globo
+        let colores = ["red", "green", "blue"]; /*el orden el en que quiero los coores*/
+        let colorIndex = 0; /*indicar lista de colores*/
+        let size = 200; /*tamaño inicial*/
+
+        
+        
+        /*cuando le doy al click quiero que haga..*/
+        $('#globo').on("click", function () {
+            //aumentar el tamaño
+            size += 10; /*aumentar cada vez que haces click*/
+            $('#globo').css({
+             'width': size + "px", /*ancho*/
+             'height': size + "px", /*alto*/
+        })
+
+            //cambiar color
+            colorIndex = (colorIndex + 1) % 3; /*cambiar entre 0, 1 y 2 , hace que repita del 3 al 0*/
+            $('#globo').css('background-color', colores[colorIndex]); /*cambiar los colores en el oreden que he indicado*/
+      
+
+        /*que hacer en estos doferentes casos*/
+        if (size > 420){ /*si el globo supera los 420px explota*/
+            size = 200; /*vuelve a salir con 200px*/
+            $('#globo').css({ 
+            'width' : size + "px", /*ancho suma*/
+            'height': size + "px",/*alto suma*/ 
+            });
+            colorIndex = 0; /*vuelve al color 0*/
+            $('#globo').css('backgroundColor', colores[colorIndex]);
+        }
+    });
+
+    /*reducir el tamaño y cambiar el color al mover el raton fuera*/
+    $('#globo').on("mouseleave", function(){
+        if (size > 200){ /*si el globo supera los 200px cambia de color*/
+            size -= 5; /*reducir tamaño 5px*/
+            $('#globo').css ({
+                'width' : size + "px", /*ancho suma*/
+                'height' : size + "px",/*alto suma*/ 
+        });
+    }
+        /*cambiar el color en el oreden en inverso*/
+        colorIndex = (colorIndex - 1 + 3) % 3; /*cambiar entre 2, 1 y 0*/
+        $('#globo').css('backgroundColor', colores[colorIndex]); /*cambiar los colores en este orden*/
+    });
+    </script>
+
+</body>
+</html>

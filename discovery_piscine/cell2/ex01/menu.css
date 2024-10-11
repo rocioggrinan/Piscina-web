@@ -1,0 +1,87 @@
+/*par que la pantalla use todo el espacio*/
+body, html {
+    margin: 0; /*margenes*/
+    padding: 0; /*espacio dentro de un objeto*/
+    font-family: Arial, sans-serif; /*tipografia*/
+    height: 100%; /*ocupa todo el alto de la pantalla*/
+}
+
+.menu-hamburguesa {
+    position: relative; /*posicionar*/
+}
+
+
+/*editar la creacion de las tres lineas del menu*/
+.menu-icon {
+    display:block; /*ocupa todo el ancho posible y crea salto de linea*/
+    width: 30px; /*el ancho*/
+    cursor: pointer; /*cambia el cursor por una mano*/
+    margin: 20px; /*margen*/
+}
+
+.menu-icon div {
+    width: 100%; /*eñ ancho*/
+    height: 4px; /*el alto*/
+    background-color: black; /*color del fondo*/
+    margin: 6px 0; /*margen*/
+    transition: 0.4s; /*tiempo del despliegue*/
+}
+
+input{
+    width: 50px;
+    height: 50px;
+}
+
+/*ocular el menu*/
+.menu {
+    list-style-type: none; /*elimina los elementos que se ponen delante de la lista (puntos/guiones)*/
+    padding: 0; /*crea espacio*/
+    margin: 0; /*margen, elimina el espacio exterior*/
+    display: none; /*esconder el menu*/
+    position: absolute; /*se despliega encima de lo que haya sin desplazar nada*/
+    top: 60px; /*posiciona el menu por debajo del icono de menu*/
+    background-color: #fde7e7; /*el fondo del menu*/
+    width: 150px; /*el ancho*/
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /*sombra alrededor del menu (no se mueva horizontalmente, sombra se desplaza hacia abajo, desenfoque de la sombra)(color de la sombra, la opacidad)*/
+}
+
+/*estilo de las opciones de menu*/
+.menu li {
+    border-bottom: none; /*borde del boton*/
+}
+
+.menu li:last-child {
+    border-bottom: none; /*elimina el borde inferior*/
+}
+
+.menu li a {
+    display: block; /*ocupa todo el ancho posible y crea salto de linea*/
+    padding: 12px; /*espacio entre el borde y el contenido*/
+    text-decoration: none; /*elimina cualquier decoracion, el subrayado*/
+    color: black; /*color de a letra*/
+    transition: background-color 0.3s; /*animacion del fondo*/
+}
+
+.menu li a:hover {
+    background-color: #f0f0f0; /*cambio de color cuando pasas por encima*/
+}
+
+/*cuando le das al boton que apareca elmenu*/
+#menu-toggle:checked ~ .menu{
+    display: block; /*ocupar todo el ancho posible y crea salto al escribir*/
+}
+
+/*cuando el menu esta activos, el icono del menu cambia*/
+#menu-toggle:checked ~ .menu-icon div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+/*oculta la segunda linea del icono del menu cuando se activa*/
+#menu-toggle:checked + .menu-icon div:nth-child(2) {
+    opacity: 0;
+}
+
+/*transforma una de las lineas del icono*/
+#menu-toggle:checked + .menu-icon div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px,5px);
+}

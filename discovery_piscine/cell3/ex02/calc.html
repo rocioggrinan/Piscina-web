@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora básica</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; /*tipografia*/
+            text-align: center; /*centrar texto*/
+            margin-top: 50px; /*espacio de arriba*/
+        }
+
+        input, select, button {
+            margin: 10px; /*espacio entre las cosas*/
+            padding: 10px; /*espacio dentro de las cosas*/
+            font-size: 18px; /*tamaño de la fuente*/
+        }
+
+        button {
+            background-color: lightblue; /*color del boton*/
+            border: none; /*sin borde*/
+            cursor: pointer; /*cambiar el cursor al pasar por encima*/
+        }
+
+            /*sobre el boton*/
+        button:hover {
+            background-color: deepskyblue; /*color al pasar el boton*/
+        }
+
+        .error {
+            color: red; /*color de error*/
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Calculadora simpleee</h1>
+
+    <!-- crear la caja del primer numero -->
+    <input type="text" id="leftinput" placeholder="Número 1">
+
+    <!-- se despliege, seleccionar l calculo -->
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <!-- caja del segundo numero -->
+    <input type="text" id="rightinput" placeholder="Número 2">
+
+
+    <!-- Boton para calcular -->
+    <button onclick="calculate()">CALCULAR</button>
+
+    <!-- mensaje de error -->
+    <p class="error" id="errorMsg"></p>
+
+
+    <script>
+        function calculate () {
+            /*datos de valores*/
+            let left = document.getElementById('leftinput').value;
+            let right = document.getElementById('rightinput').value;
+            let operator = document.getElementById('operator').value;
+            let errorMsg = document.getElementById('errorMsg');
+
+
+            /*reiniciamos el mensaje de error*/
+            errorMsg.textContent ="";
+
+            /*convertir los valores en numeros*/
+            left = parseInt (left);
+            right = parseInt (right);
+
+            /*comprobar que los numeros sean validos*/
+            if (isNaN(left) || isNaN(right) || left < 0  || right < 0) {
+                errorMsg.textContent = "error :(";
+                alert("error :("); /* alerta de error */
+                return; /* salir de la funcion */
+            }
+
+            /* ver si es division o modulo por 0 */
+            if ((operator === '/' || operator === '%') && right === 0) {
+                errorMsg.textContent = "No se puede dividir por cero";
+                alert("No se puede dividir por cero");
+                return; /* salir de la operacon */
+            }
+
+            /*realizar el calculo*/
+            let result;
+            if (operator === '+') {
+                result = left + right; /* suma */
+            } else if (operator === '-') {
+                result = left - right; /* resta */
+            } else if (operator === '*') {
+                result = left * right; /* multiplicar */
+            } else if (operator === '/') {
+                result = left / right; /* dividir */
+            } else if (operator === '%') {
+                result = left % right; /* modulo */
+            }
+
+            /* resultado mostraro */
+            alert("resultado: " + result); /* resultado */
+            console.log("resultado" + result); /* muestra el resultado */
+        
+        }
+
+        /* mensaje cada 30s */
+        setInterval(function(){
+            alert("Por favor, úsame..."); /* alerta automatica */
+        }, 30000);
+    </script>
+</body>
+</html>

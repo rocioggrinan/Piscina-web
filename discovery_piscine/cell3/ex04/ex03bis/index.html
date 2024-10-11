@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tareas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif; /* tipografia */
+            margin: 20px; /* margenes */
+        }
+        #ft_list {
+            margin-top: 20px;
+        }
+        .todo-item {
+            padding: 10px; /* espacop */
+            border: 1px solid #ccc; /* color del borde */
+            margin: 5px 0;
+            cursor: pointer; /* cambiar el cursor cuando pasas por encima */
+        }
+    </style>
+    <!-- INCLUIR jQuery desde una CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Mi lista de tareas</h1> <!-- titulo -->
+    <button onclick="addTaskToList()" id="newTodoBTn">New</button> <!-- boton -->
+    <div id="ft_list"></div><!-- crear la lista -->
+
+    <script>
+        $(document).ready(function() {
+            // Función para añadir tarea a la lista
+            function addTaskToList() {
+                const taskText = prompt("¿Qué tarea quieres añadir?");
+                if (taskText) {
+                    const todoItem = $('<div class="todo-item"></div>').text(taskText);
+                    $('#ft_list').append(todoItem);
+                    
+                    // Evento para eliminar la tarea al hacer clic
+                    todoItem.on('click', function() {
+                        $(this).remove();
+                    });
+                }
+            }
+
+          $('#newTodoBTn').on('click', addTaskToList);
+        });  
+    </script> src="todo.js"></script> <!-- con el otro archivo -->
+</body>
+</html>
